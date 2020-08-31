@@ -10,16 +10,16 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 @SpringBootApplication
 public class MockserverApplication {
 
-	private static final int PORT=8081;//定义mock端口
-	private static final String LOCALHOST="localhost";//定义mock服务地址
-	private static final String MOCK_DIR="mock";//定义mapping文件目录
+	private static final int PORT=8081;
+	private static final String LOCALHOST="localhost";
+	private static final String MOCK_DIR="mock";
 
 	public static void main(String[] args) {
 		final WireMockConfiguration config=wireMockConfig()
 				.port(PORT)
 				.usingFilesUnderClasspath(MOCK_DIR);
-		final WireMockServer WireMockServer = new WireMockServer(config);
-		WireMockServer.start();
+		final WireMockServer wireMockServer = new WireMockServer(config);
+		wireMockServer.start();
 		WireMock.configureFor(LOCALHOST,PORT);
 	}
 }

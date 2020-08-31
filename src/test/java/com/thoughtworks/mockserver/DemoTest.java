@@ -14,7 +14,6 @@ import java.util.Scanner;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DemoTest {
@@ -22,22 +21,19 @@ public class DemoTest {
     @Test
     void demo() throws IOException {
         WireMockServer wireMockServer = new WireMockServer();
-        stubFor(get(urlEqualTo("/mock/demo"))
-                .willReturn(aResponse()
-                        .withHeader("Content-Type", "text/plain")
-                        .withBody("Welcome to China")));
         wireMockServer.start();
+        stubFor(get("/demo")
+                .willReturn(aResponse()
+                .withBody("Welcome to China!")));
 
         CloseableHttpClient client = HttpClients.createDefault();
 
-        HttpGet request = new HttpGet("http://localhost:8080/mock/demo");
+        HttpGet request = new HttpGet("http://localhost:8080/demo");
         HttpResponse httpResponse = client.execute(request);
 
         String response = convertResponseToString(httpResponse);
 
-        assertEquals("Welcome to China", response);
-
-        wireMockServer.stop();
+        assertEquals("Welcome to China!", response);
     }
 
     private String convertResponseToString(HttpResponse response) throws IOException {
