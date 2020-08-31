@@ -18,7 +18,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 
-	testCompile "com.github.tomakehurst:wiremock-jre8:2.27.0"
+	implementation "com.github.tomakehurst:wiremock-jre8:2.27.0"
+	testCompile "com.github.tomakehurst:wiremock-jre8-standalone:2.27.0"
 }
 
 test {
