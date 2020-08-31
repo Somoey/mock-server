@@ -1,7 +1,18 @@
 {
   "request": {
     "method": "GET",
-    "urlPath": "/api/getAllHouses"
+    "urlPath": "/api/getAllHouses",
+    "queryParameters": {
+      "hoseId": {
+        "equalTo": "1"
+      },
+      "erpHoseId": {
+        "equalTo": "1"
+      },
+      "cusOnId": {
+        "equalTo": "1"
+      }
+    }
   },
   "response": {
     "status": 200,
