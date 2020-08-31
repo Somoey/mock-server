@@ -20,6 +20,9 @@ dependencies {
 
 	implementation "com.github.tomakehurst:wiremock-jre8:2.27.0"
 	testCompile "com.github.tomakehurst:wiremock-jre8-standalone:2.27.0"
+
+	implementation("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation("io.springfox:springfox-swagger2:2.9.2")
 }
 
 test {
