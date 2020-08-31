@@ -1,24 +1,52 @@
 {
-  "request": {
-    "method": "GET",
-    "urlPath": "/api/getAllHouses",
-    "queryParameters": {
-      "hoseId": {
-        "equalTo": "1"
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/getAllHouses",
+        "queryParameters": {
+          "hoseId": {
+            "equalTo": "1"
+          },
+          "erpHoseId": {
+            "equalTo": "1"
+          },
+          "cusOnId": {
+            "equalTo": "1"
+          }
+        }
       },
-      "erpHoseId": {
-        "equalTo": "1"
+      "response": {
+        "status": 200,
+        "bodyFileName": "house.json",
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/getAllHouses",
+        "queryParameters": {
+          "hoseId": {
+            "equalTo": "2"
+          },
+          "erpHoseId": {
+            "equalTo": "2"
+          },
+          "cusOnId": {
+            "equalTo": "2"
+          }
+        }
       },
-      "cusOnId": {
-        "equalTo": "1"
+      "response": {
+        "status": 404,
+        "bodyFileName": "nonHouse.json",
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        }
       }
     }
-  },
-  "response": {
-    "status": 200,
-    "bodyFileName": "house.json",
-    "headers": {
-      "Content-Type": "application/json; charset=UTF-8"
-    }
-  }
+  ]
 }
