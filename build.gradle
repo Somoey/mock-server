@@ -18,8 +18,14 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 
-	implementation "com.github.tomakehurst:wiremock-jre8:2.27.0"
-	testCompile "com.github.tomakehurst:wiremock-jre8-standalone:2.27.0"
+	implementation("com.github.tomakehurst:wiremock-jre8:2.25.1") {
+		exclude group: 'com.google.guava', module: 'guava'
+		exclude group: 'com.github.jknack', module: 'handlebars'
+		exclude group: 'com.github.jknack', module: 'handlebars-helpers'
+	}
+	testCompile "com.github.tomakehurst:wiremock-jre8-standalone:2.25.1"
+
+	compile fileTree(dir: 'lib', include: [ 'guava-27.0.1-jre.jar', 'handlebars-4.1.2.jar', 'handlebars-helpers-4.1.2.jar'])
 
 }
 
