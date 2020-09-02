@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "url": "/api/rooms",
+    "urlPath": "/api/rooms",
     "queryParameters": {
       "buildingId": {
         "equalTo": "id1"

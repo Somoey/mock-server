@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "url": "/api/buildings",
+    "urlPath": "/api/buildings",
     "queryParameters": {
       "projectPhaseId": {
         "equalTo": "id1"
