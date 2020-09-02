@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "GET",
-        "urlPath": "/api/getAllHouses",
+        "url": "/api/houses",
         "queryParameters": {
           "hoseId": {
             "equalTo": "1"
@@ -27,7 +27,7 @@
     {
       "request": {
         "method": "GET",
-        "urlPath": "/api/getAllHouses",
+        "urlPath": "/api/houses",
         "queryParameters": {
           "hoseId": {
             "equalTo": "2"
