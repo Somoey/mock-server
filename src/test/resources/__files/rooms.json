@@ -1,0 +1,18 @@
+{
+  "data": [
+    [
+      {
+        "roomName": "1001",
+        "roomId": "id101"
+      },
+      {
+        "roomName": "1002",
+        "roomId": "id102"
+      },
+      {
+        "roomName": "1003",
+        "roomId": "id103"
+      }
+    ]
+  ]
+}

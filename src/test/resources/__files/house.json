@@ -1,0 +1,21 @@
+{
+  "code": 0,
+  "msg": "no error",
+  "data": {
+    "houses": [
+      {
+        "name": "天府软件园E区",
+        "area": 100
+      },
+      {
+        "name": "天府软件园C区",
+        "area": 20
+      },
+      {
+        "name": "天府软件园A区",
+        "area": 33
+      }
+    ],
+    "city": "成都"
+  }
+}
