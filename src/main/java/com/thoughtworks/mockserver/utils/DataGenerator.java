@@ -3,6 +3,7 @@ package com.thoughtworks.mockserver.utils;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.mockserver.entity.HouseInfo;
 import com.thoughtworks.mockserver.entity.PaperInfo;
+import com.thoughtworks.mockserver.entity.PhaseInfo;
 import com.thoughtworks.mockserver.entity.UserHouse;
 import com.thoughtworks.mockserver.entity.UserInfo;
 
@@ -75,5 +76,12 @@ public class DataGenerator {
                 .contactNumber(ImmutableList.of("17700000002", "17700000003"))
                 .paperInfo(paperInfo)
                 .build();
+    }
+
+    public static List<PhaseInfo> ListPhases() {
+        PhaseInfo phase1 = PhaseInfo.builder().projectPhaseId("id1").projectPhaseName("招商雍景湾一期").build();
+        PhaseInfo phase2 = PhaseInfo.builder().projectPhaseId("id2").projectPhaseName("招商雍景湾二期").build();
+        PhaseInfo phase3 = PhaseInfo.builder().projectPhaseId("id3").projectPhaseName("招商雍景湾三期").build();
+        return ImmutableList.of(phase1, phase2, phase3);
     }
 }

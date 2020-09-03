@@ -1,7 +1,7 @@
 package com.thoughtworks.mockserver.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.thoughtworks.mockserver.entity.Phases;
+import com.thoughtworks.mockserver.entity.PhaseInfo;
 import com.thoughtworks.mockserver.entity.UserHouse;
 import com.thoughtworks.mockserver.entity.UserInfo;
 import com.thoughtworks.mockserver.utils.DataGenerator;
@@ -12,6 +12,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,12 +38,12 @@ public class MockController {
     }
 
     @GetMapping("/phases")
-    public Phases getAllPhases() throws IOException {
+    public PhaseInfo getAllPhases() throws IOException {
         HttpGet httpGet = new HttpGet("http://localhost:8081/api/phases?projectId=1");
         CloseableHttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
         String jsonString = EntityUtils.toString(entity);
-        return objectMapper.readValue(jsonString, Phases.class);
+        return objectMapper.readValue(jsonString, PhaseInfo.class);
     }
 
     @GetMapping("/users/houses")
@@ -53,5 +54,10 @@ public class MockController {
     @GetMapping("/users")
     public UserInfo getUserInfo(@RequestParam String userId) {
         return DataGenerator.getUserInfo();
+    }
+
+    @GetMapping("/project-phases/{projectPhaseId}/phases")
+    public List<PhaseInfo> getPhases(@PathVariable String projectPhaseId, @RequestParam String source) {
+        return DataGenerator.ListPhases();
     }
 }
