@@ -4,8 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.mockserver.entity.BuildingInfo;
 import com.thoughtworks.mockserver.entity.HouseNumberInfo;
 import com.thoughtworks.mockserver.entity.PhaseInfo;
+import com.thoughtworks.mockserver.entity.Result;
 import com.thoughtworks.mockserver.entity.UserHouse;
 import com.thoughtworks.mockserver.entity.UserInfo;
+import com.thoughtworks.mockserver.request.DeleteHouseDataRequest;
 import com.thoughtworks.mockserver.utils.DataGenerator;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,8 +15,11 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,23 +34,12 @@ public class MockController {
 
     private CloseableHttpClient client = HttpClients.createDefault();
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     @GetMapping("/hello")
     public String mock() throws IOException {
         HttpGet httpGet = new HttpGet("http://localhost:8081/hello");
         CloseableHttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
         return EntityUtils.toString(entity);
-    }
-
-    @GetMapping("/phases")
-    public PhaseInfo getAllPhases() throws IOException {
-        HttpGet httpGet = new HttpGet("http://localhost:8081/api/phases?projectId=1");
-        CloseableHttpResponse response = client.execute(httpGet);
-        HttpEntity entity = response.getEntity();
-        String jsonString = EntityUtils.toString(entity);
-        return objectMapper.readValue(jsonString, PhaseInfo.class);
     }
 
     @GetMapping("/users/houses")
@@ -71,5 +65,10 @@ public class MockController {
     @GetMapping("/buildings/{buildingId}/house-numbers")
     public List<HouseNumberInfo> getHouses(@PathVariable String buildingId, @RequestParam String source) {
         return DataGenerator.ListHouseNumber();
+    }
+
+    @DeleteMapping("users/houses")
+    public Result deleteHouseData(@RequestBody DeleteHouseDataRequest request) {
+        return new Result("ok");
     }
 }
