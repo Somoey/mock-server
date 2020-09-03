@@ -3,6 +3,7 @@ package com.thoughtworks.mockserver.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.mockserver.entity.Phases;
 import com.thoughtworks.mockserver.entity.UserHouse;
+import com.thoughtworks.mockserver.entity.UserInfo;
 import com.thoughtworks.mockserver.utils.DataGenerator;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -44,8 +45,13 @@ public class MockController {
         return objectMapper.readValue(jsonString, Phases.class);
     }
 
-    @GetMapping("/user/houses")
+    @GetMapping("/users/houses")
     public List<UserHouse> listUserHouses(@RequestParam String customerId) {
         return DataGenerator.listUserHouses();
+    }
+
+    @GetMapping("/users")
+    public UserInfo getUserInfo(@RequestParam String userId) {
+        return DataGenerator.getUserInfo();
     }
 }

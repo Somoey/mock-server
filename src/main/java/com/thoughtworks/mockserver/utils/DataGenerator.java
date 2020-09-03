@@ -2,7 +2,9 @@ package com.thoughtworks.mockserver.utils;
 
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.mockserver.entity.HouseInfo;
+import com.thoughtworks.mockserver.entity.PaperInfo;
 import com.thoughtworks.mockserver.entity.UserHouse;
+import com.thoughtworks.mockserver.entity.UserInfo;
 
 import java.util.List;
 
@@ -54,5 +56,24 @@ public class DataGenerator {
                 .build();
 
         return ImmutableList.of(house1, house2, house3);
+    }
+
+    public static UserInfo getUserInfo() {
+        PaperInfo paperInfo = PaperInfo.builder().idCard("510110xxxxxxxx0001")
+                .passport("878xxxxxxxxxxxxx02")
+                .mainlandPass("878xxxxxxxxxxxxx02")
+                .build();
+
+        return UserInfo.builder()
+                .customerId("1234567")
+                .memberId("1234567")
+                .nickname("昵称")
+                .avatar("https://oss/avatar.png")
+                .sex("")
+                .birthday("19900101")
+                .bindPhoneNumber("17700000001")
+                .contactNumber(ImmutableList.of("17700000002", "17700000003"))
+                .paperInfo(paperInfo)
+                .build();
     }
 }
