@@ -1,6 +1,8 @@
 package com.thoughtworks.mockserver.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thoughtworks.mockserver.entity.BuildingInfo;
+import com.thoughtworks.mockserver.entity.HouseNumberInfo;
 import com.thoughtworks.mockserver.entity.PhaseInfo;
 import com.thoughtworks.mockserver.entity.UserHouse;
 import com.thoughtworks.mockserver.entity.UserInfo;
@@ -56,8 +58,18 @@ public class MockController {
         return DataGenerator.getUserInfo();
     }
 
-    @GetMapping("/project-phases/{projectPhaseId}/phases")
-    public List<PhaseInfo> getPhases(@PathVariable String projectPhaseId, @RequestParam String source) {
+    @GetMapping("/projects/{projectId}/phases")
+    public List<PhaseInfo> getPhases(@PathVariable String projectId, @RequestParam String source) {
         return DataGenerator.ListPhases();
+    }
+
+    @GetMapping("/project-phases/{projectPhaseId}/buildings")
+    public List<BuildingInfo> getBuildings(@PathVariable String projectPhaseId, @RequestParam String source) {
+        return DataGenerator.ListBuildings();
+    }
+
+    @GetMapping("/buildings/{buildingId}/house-numbers")
+    public List<HouseNumberInfo> getHouses(@PathVariable String buildingId, @RequestParam String source) {
+        return DataGenerator.ListHouseNumber();
     }
 }

@@ -1,7 +1,9 @@
 package com.thoughtworks.mockserver.utils;
 
 import com.google.common.collect.ImmutableList;
+import com.thoughtworks.mockserver.entity.BuildingInfo;
 import com.thoughtworks.mockserver.entity.HouseInfo;
+import com.thoughtworks.mockserver.entity.HouseNumberInfo;
 import com.thoughtworks.mockserver.entity.PaperInfo;
 import com.thoughtworks.mockserver.entity.PhaseInfo;
 import com.thoughtworks.mockserver.entity.UserHouse;
@@ -83,5 +85,19 @@ public class DataGenerator {
         PhaseInfo phase2 = PhaseInfo.builder().projectPhaseId("id2").projectPhaseName("招商雍景湾二期").build();
         PhaseInfo phase3 = PhaseInfo.builder().projectPhaseId("id3").projectPhaseName("招商雍景湾三期").build();
         return ImmutableList.of(phase1, phase2, phase3);
+    }
+
+    public static List<BuildingInfo> ListBuildings() {
+        BuildingInfo building1 = BuildingInfo.builder().buildingId("id1").buildingName("招商雍景湾1栋").build();
+        BuildingInfo building2 = BuildingInfo.builder().buildingId("id2").buildingName("招商雍景湾2栋").build();
+        BuildingInfo building3 = BuildingInfo.builder().buildingId("id3").buildingName("招商雍景湾3栋").build();
+        return ImmutableList.of(building1, building2, building3);
+    }
+
+    public static List<HouseNumberInfo> ListHouseNumber() {
+        HouseNumberInfo house1 = HouseNumberInfo.builder().houseNumberId("id101").houseNumberName("1001").build();
+        HouseNumberInfo house2 = HouseNumberInfo.builder().houseNumberId("id102").houseNumberName("1002").build();
+        HouseNumberInfo house3 = HouseNumberInfo.builder().houseNumberId("id103").houseNumberName("1003").build();
+        return ImmutableList.of(house1, house2, house3);
     }
 }
