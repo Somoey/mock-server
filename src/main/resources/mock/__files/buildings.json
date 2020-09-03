@@ -1,18 +1,16 @@
 {
-  "data": [
-    [
-      {
-        "buildingName": "招商雍景湾1栋",
-        "buildingId": "id1"
-      },
-      {
-        "buildingName": "招商雍景湾2栋",
-        "buildingId": "id2"
-      },
-      {
-        "buildingName": "招商雍景湾3栋",
-        "buildingId": "id3"
-      }
-    ]
+  "buildings": [
+    {
+      "buildingName": "招商雍景湾1栋",
+      "buildingId": "id1"
+    },
+    {
+      "buildingName": "招商雍景湾2栋",
+      "buildingId": "id2"
+    },
+    {
+      "buildingName": "招商雍景湾3栋",
+      "buildingId": "id3"
+    }
   ]
 }

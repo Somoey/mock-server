@@ -1,0 +1,54 @@
+[
+  {
+    "projectId": "id1",
+    "houseId": "id1",
+    "houseName": "招商雍景湾",
+    "houseInfo": {
+      "phase": "1期",
+      "building": "1栋",
+      "room": "101"
+    },
+    "address": "广东深圳南山爱榕路48号",
+    "customerServicePhoneNumber": "01087888888",
+    "sourceType": "物业",
+    "exceptionFlag": true,
+    "ownerType": "业主",
+    "status": "未交付",
+    "auditStatus": "审核失败",
+    "auditFailedReason": "业主信息缺失，请去物业登记"
+  },
+  {
+    "projectId": "id1",
+    "houseId": "id1",
+    "houseName": "招商雍景湾",
+    "houseInfo": {
+      "phase": "1期",
+      "building": "1栋",
+      "room": "101"
+    },
+    "address": "广东深圳南山爱榕路48号",
+    "customerServicePhoneNumber": "01087888888",
+    "ownerType": "业主",
+    "sourceType": "物业",
+    "exceptionFlag": false,
+    "status": "未交付",
+    "auditStatus": "审核失败",
+    "auditFailedReason": "业主信息缺失，请去物业登记"
+  },
+  {
+    "projectId": "id1",
+    "houseId": "id1",
+    "houseName": "招商雍景湾",
+    "houseInfo": {
+      "phase": "1期",
+      "building": "1栋",
+      "room": "101"
+    },
+    "address": "广东深圳南山爱榕路48号",
+    "customerServicePhoneNumber": "01087888888",
+    "sourceType": "物业",
+    "exceptionFlag": false,
+    "ownerType": "业主",
+    "status": "已交付"
+  }
+]

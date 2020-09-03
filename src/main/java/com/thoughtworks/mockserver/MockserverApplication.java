@@ -14,10 +14,12 @@ public class MockserverApplication {
 
 	private static final int PORT=8081;
 	private static final String LOCALHOST="localhost";
+	private static final String MOCK = "mock";
 
 	public static void main(String[] args) {
-		final WireMockConfiguration config=wireMockConfig()
-				.port(PORT);
+		final WireMockConfiguration config = wireMockConfig()
+				.port(PORT)
+				.usingFilesUnderDirectory(MOCK);
 		final WireMockServer wireMockServer = new WireMockServer(config);
 		wireMockServer.start();
 		WireMock.configureFor(LOCALHOST,PORT);
